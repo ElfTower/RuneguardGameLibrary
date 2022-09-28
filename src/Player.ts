@@ -1,4 +1,13 @@
 /**
+ * The player type.
+ */
+export enum PlayerType
+{
+    Player = 1,
+    Admin = 2
+}
+
+/**
  * The current player status.
  */
 export interface IPlayerStatus
@@ -31,6 +40,10 @@ export interface PlayerInfo
      * The player's network id.
      */
     id: string;
+	/**
+	 * The type of player.
+	 */
+	type?: string;
     /**
      * The player's JWT token.
      */
@@ -63,6 +76,10 @@ export class Player
      * The player's network id.
      */
     id: string;
+	/**
+	 * The type of player.
+	 */
+	type: string;
     /**
      * The player's JWT token.
      */
@@ -75,7 +92,22 @@ export class Player
     constructor (newPlayer: PlayerInfo)
     {
         this.id = newPlayer.id;
+        this.type = newPlayer.type || "player";
         this.jwtToken = newPlayer.jwtToken || "";
         this.name = newPlayer.displayName;
+    }
+
+    /**
+     * Get the player type.
+     */
+    static getPlayerType (playerType: string): number
+    {
+        if (playerType === "player")
+            return (PlayerType.Player);
+
+        if (playerType === "admin")
+            return (PlayerType.Admin);
+
+        return (0);
     }
 }

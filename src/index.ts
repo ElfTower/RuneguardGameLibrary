@@ -3,7 +3,7 @@ import { DialogueTree } from "./DialogueTree";
 import { Interactable } from "./Interactable";
 import { Item } from "./Item";
 import { NPC } from "./NPC";
-import { Player, IPlayerStatus, PlayerInfo } from "./Player";
+import { Player, IPlayerStatus, PlayerInfo, PlayerType } from "./Player";
 import { Quest, IQuest, QuestStatus } from "./Quest";
 
 export {
@@ -12,6 +12,6 @@ export {
     Interactable,
     Item,
     NPC,
-    Player, IPlayerStatus, PlayerInfo, 
+    Player, IPlayerStatus, PlayerInfo, PlayerType,
     Quest, IQuest, QuestStatus
 };
