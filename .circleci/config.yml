@@ -1,0 +1,39 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: cimg/node:16.17
+        environment:
+          NPM_ACCESS_TOKEN: $NPM_ACCESS_TOKEN
+    steps:
+      - setup_remote_docker
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            sudo npm install -g typescript typedoc
+            npm install
+      - run:
+          name: Build
+          command: |
+            npm run build
+      - run:
+          name: Check if everything built correctly
+          command: |
+            ls ./build/
+      - run:
+          name: Publish library
+          command: |
+            echo "//registry.npmjs.org/:_authToken=$NPM_ACCESS_TOKEN" > ./.npmrc
+            npm publish --ignore-scripts
+
+workflows:
+  version: 2
+  runeguard-game-library:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: 
+                - master
