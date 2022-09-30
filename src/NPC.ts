@@ -1,13 +1,10 @@
+import { Character, ICharacter } from "./Character";
+
 /**
  * A NPC
  */
- export class NPC
+ export class NPC extends Character
  {
-	/**
-	 * The name.
-	 */
-	name: string;
-
 	/**
 	 * Executed when a collision with the NPC occurs.
 	 */
@@ -17,8 +14,8 @@
 	 */
 	onTrigger?: () => Promise<void>;
 
-	constructor ()
+	constructor (npc: ICharacter)
 	{
-		this.name = "";
+		super (npc);
 	}
  }

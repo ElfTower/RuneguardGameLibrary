@@ -1,17 +1,21 @@
 import { DialogueBox } from "./DialogueBox";
 import { DialogueTree } from "./DialogueTree";
-import { Interactable } from "./Interactable";
+import { Interactable, InteractableTypes } from "./Interactable";
 import { Item } from "./Item";
+import { Inventory } from "./Inventory";
+import { Character, ICharacter, ICharacterStatus, CharacterType, CharacterStructure } from "./Character";
 import { NPC } from "./NPC";
-import { Player, IPlayerStatus, PlayerInfo, PlayerType } from "./Player";
+import { Player, IPlayer } from "./Player";
 import { Quest, IQuest, QuestStatus } from "./Quest";
 
 export {
     DialogueBox,
     DialogueTree,
-    Interactable,
+    Interactable, InteractableTypes,
+    Character, ICharacter, ICharacterStatus, CharacterType, CharacterStructure,
     Item,
+    Inventory,
     NPC,
-    Player, IPlayerStatus, PlayerInfo, PlayerType,
+    Player, IPlayer,
     Quest, IQuest, QuestStatus
 };
