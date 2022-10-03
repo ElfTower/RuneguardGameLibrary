@@ -35,7 +35,9 @@ export interface ICharacterStatus
      * The character's inventory. If this is a string it needs to be parsed 
      * using JSON.parse.
      */
-    inventory?: any;
+    inventory?: {
+            [name: string]: any;
+        };
 }
 
 /**
@@ -86,7 +88,9 @@ export interface ICharacter
     /**
      * The character's inventory.
      */
-    inventory?: Inventory;
+    inventory?: {
+        [name: string]: Inventory;
+    };
 }
 
 /**
@@ -109,14 +113,16 @@ export class Character implements ICharacter
     /**
      * The player's inventory.
      */
-    inventory: Inventory;
+    inventory: {
+        [name: string]: Inventory
+    };
 
     constructor (character: ICharacter)
     {
         this.name = character.displayName || character.name;
         this.type = character.type || "player";
         this.character = { base: "default" };
-        this.inventory = new Inventory ();
+        this.inventory = {};
     }
 
     /**
