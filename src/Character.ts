@@ -7,7 +7,7 @@ export enum CharacterType
 {
     Player = 1,
     NPC = 2,
-    Admin = 2
+    Admin = 3
 }
 
 /**
