@@ -108,6 +108,16 @@ export class Quest implements IQuest
 	}
 
 	/**
+	 * Get the quest as a JSON object.
+	 */
+	toJSON (): IQuest
+	{
+		return ({
+				id: this.id
+			});
+	}
+
+	/**
 	 * Update the current quest.
 	 */
 	async update (): Promise<void>
